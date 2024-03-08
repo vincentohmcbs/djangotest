@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: djangotest
+spec:
+  selector:
+    matchLabels:
+      app: djangotest
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: djangotest
+    spec:
+      containers:
+      - name: djangotest
+        image: djangotest:v3
+        ports:
+        - containerPort: 8000
